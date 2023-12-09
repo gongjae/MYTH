@@ -1,62 +1,73 @@
+'use client'
+
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { auth, UserButton } from '@clerk/nextjs'
-import { useEffect, useState } from 'react'
+import { signOut, useSession } from 'next-auth/react'
+import Image from 'next/image'
+import { useSelector } from 'react-redux'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
-function ColorSchemesExample() {
-  const [userId, setUserId] = useState(null)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const { userId } = await auth()
-      setUserId(userId)
-    }
-
-    fetchData()
-  }, [])
+export default function ColorSchemesExample() {
+  const { loading, cartItems } = useSelector((state) => state.cart)
+  const pathname = usePathname()
+  const { status, data: session } = useSession()
   return (
-    <>
-      <Navbar bg="dark" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand href="#home">MYTH</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#TOP">TOP</Nav.Link>
-            <Nav.Link href="#BOTTOM">BOTTOM</Nav.Link>
-            <Nav.Link href="#SHOES">SHOES</Nav.Link>
-            <Nav.Link href="#BAG">BAG</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-      {!userId ? (
-        //로그인이 안된 경우
-        <>
-          <div className="bg-gray-500 py-4 px-8">
-            <a
-              href="/sign-in"
-              className="text-yellow-300 hover:text-white mr-4"
-            >
-              Sign In
-            </a>
-            <a
-              href="/sign-up"
-              className="text-yellow-300 hover:text-white mr-4"
-            >
-              Sign UP
-            </a>
-          </div>
-        </>
-      ) : (
-        //로그인된 경우
-        <>
-          <div className="ml-auto">
-            <UserButton afterSignOutUrl="/" />
-          </div>
-        </>
-      )}
-    </>
+    <Navbar bg="dark" data-bs-theme="dark">
+      <Container>
+        <Navbar.Brand href="../#home">MYTH</Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link href="../bags">BAGS</Nav.Link>
+          <Nav.Link href="../clothes">CLOTHES</Nav.Link>
+          <Nav.Link href="../pants">PANTS</Nav.Link>
+          <Nav.Link href="../outer">OUTER</Nav.Link>
+          <Nav.Link href="../shoes">SHOES</Nav.Link>
+          {status === 'authenticated' ? (
+            <>
+              <button className="text-white px-4" onClick={() => signOut()}>
+                Sign-out
+              </button>
+              <div className="flex gap-2 items-center">
+                <Image
+                  className="rounded-full"
+                  src={session?.user?.image}
+                  width={40}
+                  height={40}
+                  alt={session?.user?.name}
+                />
+                <span className="text-white font-bold">
+                  {session?.user?.name}
+                </span>
+              </div>
+              <div>
+                <span className="cart-badge">
+                  {loading ? '' : cartItems.reduce((a, c) => a + c.qty, 0)}
+                </span>
+                <Link href="/cart" className="flex justify-between items-end">
+                  <svg
+                    fill="#ffffff"
+                    viewBox="100 100 200 280"
+                    width="40px"
+                    height="40px"
+                  >
+                    <path d="M 110.164 188.346 C 104.807 188.346 100.437 192.834 100.437 198.337 C 100.437 203.84 104.807 208.328 110.164 208.328 L 131.746 208.328 L 157.28 313.233 C 159.445 322.131 167.197 328.219 176.126 328.219 L 297.409 328.219 C 306.186 328.219 313.633 322.248 315.951 313.545 L 341.181 218.319 L 320.815 218.319 L 297.409 308.237 L 176.126 308.237 L 150.592 203.332 C 148.426 194.434 140.675 188.346 131.746 188.346 L 110.164 188.346 Z M 285.25 328.219 C 269.254 328.219 256.069 341.762 256.069 358.192 C 256.069 374.623 269.254 388.165 285.25 388.165 C 301.247 388.165 314.431 374.623 314.431 358.192 C 314.431 341.762 301.247 328.219 285.25 328.219 Z M 197.707 328.219 C 181.711 328.219 168.526 341.762 168.526 358.192 C 168.526 374.623 181.711 388.165 197.707 388.165 C 213.704 388.165 226.888 374.623 226.888 358.192 C 226.888 341.762 213.704 328.219 197.707 328.219 Z M 197.707 348.201 C 203.179 348.201 207.434 352.572 207.434 358.192 C 207.434 363.812 203.179 368.183 197.707 368.183 C 192.236 368.183 187.98 363.812 187.98 358.192 C 187.98 352.572 192.236 348.201 197.707 348.201 Z M 285.25 348.201 C 290.722 348.201 294.977 352.572 294.977 358.192 C 294.977 363.812 290.722 368.183 285.25 368.183 C 279.779 368.183 275.523 363.812 275.523 358.192 C 275.523 352.572 279.779 348.201 285.25 348.201 Z" />
+                  </svg>
+                  Cart
+                </Link>
+                {!loading && cartItems.length > 0 && pathname !== '/cart' && (
+                  <div className="w-0 h-0 border-8 border-solid border-transparent border-r-gray-300 dark:border-r-gray-900 absolute ml-[73px] -mt-5"></div>
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <Nav.Link href="../signIn">Sign-In</Nav.Link>
+            </>
+          )}
+        </Nav>
+      </Container>
+    </Navbar>
   )
 }
-
-export default ColorSchemesExample
