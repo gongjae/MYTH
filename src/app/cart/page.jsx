@@ -94,7 +94,7 @@ export default function CartPage() {
               <ul>
                 <li>
                   <div className="pb-3 text-xl">
-                    Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)}) : $
+                    총 가격 ({cartItems.reduce((a, c) => a + c.qty, 0)}) : $
                     {itemsPrice}
                   </div>
                 </li>
