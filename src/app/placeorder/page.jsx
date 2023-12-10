@@ -28,7 +28,7 @@ export default function PlaceOrderScreen() {
   return (
     <div>
       <CheckoutWizard activeStep={3} />
-      <h1 className="mb-4 text-xl">결제 하기</h1>
+      <h1 className="mb-4 text-xl">결제하기</h1>
       {loading ? (
         <div>Loading</div>
       ) : cartItems.length === 0 ? (
@@ -65,10 +65,10 @@ export default function PlaceOrderScreen() {
               <table className="min-w-full">
                 <thead className="border-b">
                   <tr>
-                    <th className="px-5 text-left">Item</th>
-                    <th className="p-5 text-right">Quantity</th>
-                    <th className="p-5 text-right">Price</th>
-                    <th className="p-5 text-right">Subtotal</th>
+                    <th className="px-5 text-left">상품</th>
+                    <th className="p-5 text-right">개수</th>
+                    <th className="p-5 text-right"></th>
+                    <th className="p-5 text-right">총 금액</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -139,7 +139,8 @@ export default function PlaceOrderScreen() {
                 </li>
                 <li>
                   <button
-                    onClick={() => alert('Not implemented')}
+                    onClick={() => router.push('/result')}
+                    type="button"
                     className="primary-button w-full"
                   >
                     결제하기

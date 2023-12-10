@@ -43,7 +43,7 @@ export default function ShippingAddressPage() {
       >
         <h1 className="mb-4 text-xl">배송지 주소</h1>
         <div className="mb-4">
-          <label htmlFor="fullName">Full Name</label>
+          <label htmlFor="fullName">이름</label>
           <input
             className="w-full"
             id="fullName"
@@ -57,7 +57,7 @@ export default function ShippingAddressPage() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">시, 군</label>
           <input
             className="w-full"
             id="address"
@@ -74,7 +74,7 @@ export default function ShippingAddressPage() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="city">City</label>
+          <label htmlFor="city">도로명</label>
           <input
             className="w-full"
             id="city"
@@ -87,7 +87,7 @@ export default function ShippingAddressPage() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="postalCode">Postal Code</label>
+          <label htmlFor="postalCode">주소</label>
           <input
             className="w-full"
             id="postalCode"
@@ -100,7 +100,7 @@ export default function ShippingAddressPage() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="country">Country</label>
+          <label htmlFor="country">상세 주소</label>
           <input
             className="w-full"
             id="country"

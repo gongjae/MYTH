@@ -37,10 +37,10 @@ export default function CartPage() {
             <table className="min-w-full ">
               <thead className="border-b">
                 <tr>
-                  <th className="p-5 text-left">Product</th>
-                  <th className="p-5 text-right">Quantity</th>
-                  <th className="p-5 text-right">Price</th>
-                  <th className="p-5">Action</th>
+                  <th className="p-5 text-left">상품</th>
+                  <th className="p-5 text-right">개수</th>
+                  <th className="p-5 text-right">가격</th>
+                  <th className="p-5">삭제</th>
                 </tr>
               </thead>
               <tbody>
@@ -103,7 +103,7 @@ export default function CartPage() {
                     onClick={() => router.push('/shipping')}
                     className="primary-button w-full"
                   >
-                    Proceed to checkout
+                    결제하기
                   </button>
                 </li>
               </ul>

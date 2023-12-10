@@ -26,7 +26,7 @@ export default function Footer() {
               <li>
                 <a
                   className="text-white hover:text-gray-800"
-                  href="https://GitHubhub.com/rrvv01"
+                  href="https://github.com/rrvv01"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -49,7 +49,7 @@ export default function Footer() {
               <li>
                 <a
                   className="text-white hover:text-gray-800"
-                  href="https://GitHubhub.com/dongha0212"
+                  href="https://github.com/dongha0212"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -72,7 +72,7 @@ export default function Footer() {
               <li>
                 <a
                   className="text-white hover:text-gray-800"
-                  href="https://GitHubhub.com/gongjae"
+                  href="https://github.com/gongjae"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -95,7 +95,7 @@ export default function Footer() {
               <li>
                 <a
                   className="text-white hover:text-gray-800"
-                  href="https://GitHubhub.com/rkdalsgur"
+                  href="https://github.com/rkdalsgur"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

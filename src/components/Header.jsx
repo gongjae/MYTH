@@ -41,7 +41,7 @@ export default function ColorSchemesExample() {
                   {session?.user?.name}
                 </span>
               </div>
-              <div>
+              <div className="ml-auto d-flex align-items-center">
                 <span className="cart-badge">
                   {loading ? '' : cartItems.reduce((a, c) => a + c.qty, 0)}
                 </span>
