@@ -5,32 +5,30 @@ import { useRouter } from 'next/navigation'
 export default function AddReview() {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+
   const router = useRouter()
 
   const handleSubmit = async (e) => {
-    const apiUrl = process.env.API_URL
     e.preventDefault()
-    if (!title || !description) {
-      alert('리뷰를 등록해주세요')
-      return // 리뷰가 비어있는 경우 바로 종료
-    }
+
     try {
-      const res = await fetch(`${apiUrl}/api/reviews`, {
+      const res = await fetch(`/api/reviews`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json', // 오타 수정
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ title, description }),
       })
-      if (res.ok) {
-        router.reload() // 또는 router.push('/')를 사용할 수 있습니다.
-      } else {
-        throw new Error('리뷰를 등록하는 데 실패하였습니다')
+      if (!res.ok) {
+        throw new Error('Failed to add review')
       }
+      router.push('/')
+      router.refresh()
     } catch (error) {
-      console.error(error)
+      console.log(error)
     }
   }
+
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <input
