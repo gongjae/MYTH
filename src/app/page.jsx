@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import Footer from './Footer/Footer'
 import ProductItem from '@/components/ProductItem'
 import { data } from '@/utils/data'
