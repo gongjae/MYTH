@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 export default function AddReview() {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
+  const [title, setTitle] = useState()
+  const [description, setDescription] = useState()
   const router = useRouter()
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -31,7 +31,6 @@ export default function AddReview() {
   }
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-           {' '}
       <input
         onChange={(e) => setTitle(e.target.value)}
         value={title}
@@ -39,7 +38,6 @@ export default function AddReview() {
         type="text"
         placeholder="Review Title"
       />
-           {' '}
       <textarea
         onChange={(e) => setDescription(e.target.value)}
         value={description}
@@ -47,12 +45,11 @@ export default function AddReview() {
         type="text"
         placeholder="Review Description"
       />
-           {' '}
       <button
         type="submit"
         className="bg-green-800 text-white font-bold px-6 py-3 w-fit rounded-md"
       >
-                리뷰 추가하기      {' '}
+        리뷰 추가하기
       </button>
     </form>
   )

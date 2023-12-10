@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector } from 'react-redux'
-import Footer from '../Footer/Footer'
 
 export default function CartPage() {
   const dispatch = useDispatch()
@@ -21,15 +20,15 @@ export default function CartPage() {
   }
   return (
     <div>
-      <h1 className="mb-4 text-xl">Shopping Cart</h1>
+      <h1 className="mb-4 text-xl">장바구니</h1>
 
       {loading ? (
-        <div>Loading...</div>
+        <div>로딩중...</div>
       ) : cartItems.length === 0 ? (
         <div>
-          Cart is empty.{' '}
+          장바구니가 비었습니다.{' '}
           <Link className="text-blue-500" href="/">
-            Go shopping
+            쇼핑하러가기
           </Link>
         </div>
       ) : (

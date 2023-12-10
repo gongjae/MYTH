@@ -2,7 +2,7 @@ import { UserProfile } from '@clerk/nextjs'
 const ProfilePage = () => {
   return (
     <div>
-            <UserProfile />
+      <UserProfile />
     </div>
   )
 }

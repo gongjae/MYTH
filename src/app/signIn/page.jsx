@@ -9,7 +9,7 @@ export default async function SignIn() {
   }
   return (
     <div className="mt-16">
-            <SignInBtn /> 
+      <SignInBtn /> 
     </div>
   )
 }
