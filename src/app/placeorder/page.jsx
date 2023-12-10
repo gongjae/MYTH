@@ -28,18 +28,18 @@ export default function PlaceOrderScreen() {
   return (
     <div>
       <CheckoutWizard activeStep={3} />
-      <h1 className="mb-4 text-xl">Place Order</h1>
+      <h1 className="mb-4 text-xl">결제 하기</h1>
       {loading ? (
         <div>Loading</div>
       ) : cartItems.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/">Go shopping</Link>
+          장바구니가 비었습니다. <Link href="/">쇼핑하러가기</Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
           <div className="overflow-x-auto md:col-span-3">
             <div className="card  p-5">
-              <h2 className="mb-2 text-lg">Shipping Address</h2>
+              <h2 className="mb-2 text-lg">배송지 주소</h2>
               <div>
                 {shippingAddress.fullName}, {shippingAddress.address},{' '}
                 {shippingAddress.city}, {shippingAddress.postalCode},{' '}
@@ -52,7 +52,7 @@ export default function PlaceOrderScreen() {
               </div>
             </div>
             <div className="card  p-5">
-              <h2 className="mb-2 text-lg">Payment Method</h2>
+              <h2 className="mb-2 text-lg">결제 수단</h2>
               <div>{paymentMethod}</div>
               <div>
                 <Link className="default-button inline-block" href="/payment">
@@ -61,7 +61,7 @@ export default function PlaceOrderScreen() {
               </div>
             </div>
             <div className="card overflow-x-auto p-5">
-              <h2 className="mb-2 text-lg">Order Items</h2>
+              <h2 className="mb-2 text-lg">주문 상품</h2>
               <table className="min-w-full">
                 <thead className="border-b">
                   <tr>
@@ -111,29 +111,29 @@ export default function PlaceOrderScreen() {
           </div>
           <div>
             <div className="card  p-5">
-              <h2 className="mb-2 text-lg">Order Summary</h2>
+              <h2 className="mb-2 text-lg">주문 확인</h2>
               <ul>
                 <li>
                   <div className="mb-2 flex justify-between">
-                    <div>Items</div>
+                    <div>상품 금액</div>
                     <div>${itemsPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
-                    <div>Tax</div>
+                    <div>세금</div>
                     <div>${taxPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
-                    <div>Shipping</div>
+                    <div>배송비</div>
                     <div>${shippingPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
-                    <div>Total</div>
+                    <div>총 금액</div>
                     <div>${totalPrice}</div>
                   </div>
                 </li>
@@ -142,7 +142,7 @@ export default function PlaceOrderScreen() {
                     onClick={() => alert('Not implemented')}
                     className="primary-button w-full"
                   >
-                    Place Order
+                    결제하기
                   </button>
                 </li>
               </ul>

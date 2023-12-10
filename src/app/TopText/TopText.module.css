@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&display=swap');
+
+.topTitleContainer:before,
+.topTitleContainer:after {
+  position: absolute;
+  font-size: 82px;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 4.92px;
+}
+
+.topTitleContainer:before {
+  left: 247px;
+  top: 9px;
+}
+
+.topTitleContainer:after {
+  left: 530px;
+  top: 9px;
+}
+
+.topTitle {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.topTitle span {
+  text-transform: uppercase;
+  font-family: 'Alumni Sans Collegiate One', sans-serif;
+  font-size: 95px;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 4.92px;
+}
+
+.topTitleAdaptive {
+  display: none;
+  height: 300px;
+  position: relative;
+}
+
+@media (max-width: 950px) {
+  .topTitleContainer {
+    width: 100%;
+  }
+  .topTitle {
+    margin-left: 15px;
+  }
+  .topTitle span,
+  .topTitleContainer:before,
+  .topTitleContainer:after {
+    font-size: 75px;
+  }
+  .topTitleContainer:before {
+    left: 242px;
+  }
+  .topTitleContainer:after {
+    left: 506px;
+  }
+}
+
+@media (max-width: 900px) {
+  .topTitle {
+    margin-left: 45px;
+  }
+  .topTitle span,
+  .topTitleContainer:before,
+  .topTitleContainer:after {
+    font-size: 65px;
+  }
+  .topTitleContainer:before {
+    left: 246px;
+  }
+  .topTitleContainer:after {
+    left: 477px;
+  }
+}
+
+@media (max-width: 850px) {
+  .topTitle {
+    margin-left: 30px;
+  }
+  .topTitleContainer:before {
+    left: 231px;
+  }
+  .topTitleContainer:after {
+    left: 464px;
+  }
+}
+
+@media (max-width: 802px) {
+  .topTitleAdaptive {
+    display: block;
+  }
+  .topTitleContainer {
+    display: none;
+  }
+  .topTitle {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    text-align: center;
+  }
+  .topTitle span {
+    text-decoration: underline;
+    text-decoration-color: #661515;
+    text-decoration-thickness: from-font;
+  }
+}
+
+@media (max-width: 300px) {
+  .topTitleAdaptive {
+    height: 210px;
+  }
+  .topTitle span {
+    font-size: 50px;
+  }
+}

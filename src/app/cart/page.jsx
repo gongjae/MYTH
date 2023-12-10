@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector } from 'react-redux'
+import Footer from '../Footer/Footer'
 
 export default function CartPage() {
   const dispatch = useDispatch()

@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 export default function PaymentPage() {
   const payments = [
-    'Paypal',
-    'Stripe',
-    'CashOnDelivery',
+    '계좌 이체',
+    'Toss 결제',
+    '카드 결제',
     'kakaoPay',
     'NaverPay',
   ]
@@ -44,7 +44,7 @@ export default function PaymentPage() {
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h1 className="mb-4 text-xl font-bold">Payment Method</h1>
+        <h1 className="mb-4 text-xl font-bold">결제 수단</h1>
 
         {payments.map((payment) => (
           <div key={payment} className="mb-4">

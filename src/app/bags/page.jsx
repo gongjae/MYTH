@@ -1,5 +1,6 @@
 import ProductItem from '@/components/ProductItem'
 import { data } from '@/utils/data'
+import Footer from '../Footer/Footer'
 
 export default function Home() {
   const { products } = data
@@ -11,10 +12,15 @@ export default function Home() {
   })
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2">
-      {filteredProducts.map((product) => (
-        <ProductItem key={product.id} product={product} />
-      ))}
-    </div>
+    <main>
+      <div className="p-12 mb-96">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2">
+          {filteredProducts.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))}
+        </div>
+      </div>
+      <Footer></Footer>
+    </main>
   )
 }
