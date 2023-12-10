@@ -3,10 +3,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 import CartSidebar from './CartSidebar'
 import Header from './Header'
-import Footer from './Footer/Footer'
 import { useEffect } from 'react'
 import { hideLoading } from '@/redux/slices/cartSlice'
 import { usePathname } from 'next/navigation'
+import Footer from '../app/Footer/Footer'
 
 export default function App({ children }) {
   const dispatch = useDispatch()
