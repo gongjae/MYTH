@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 export default function AddReview() {
-  const [title, setTitle] = useState()
-  const [description, setDescription] = useState()
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
   const router = useRouter()
   const handleSubmit = async (e) => {
     e.preventDefault()
