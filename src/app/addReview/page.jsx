@@ -12,7 +12,7 @@ export default function AddReview() {
       alert('리뷰를 등록해주세요')
     }
     try {
-      const res = await fetch('http://localhost:3000/api/reviews', {
+      const res = await fetch(`${apiUrl}/api/reviews`, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
