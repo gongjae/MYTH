@@ -6,6 +6,7 @@ export default function AddReview() {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const router = useRouter()
+  const apiUrl = process.env.API_URL
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!title || !description) {
