@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white inset-x-0 bottom-0 p-0">
@@ -9,7 +11,9 @@ export default function Footer() {
           <span className="ml-3 text-xl">MYTH</span>
         </div>
         <p className="text-sm text-white">
-          Joongbu University - Web Programming 2
+          <Link href="https://youtu.be/TbVqnhLaStk">
+            Joongbu University - Web Programming 2
+          </Link>
         </p>
         <div className="flex flex-wrap justify-between">
           <div className="px-4">
