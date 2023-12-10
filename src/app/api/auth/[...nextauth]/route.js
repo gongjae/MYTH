@@ -30,27 +30,38 @@ export const authOptions = {
           const userExists = await User.findOne({ email })
 
           if (!userExists) {
-            const res = await fetch(`${apiUrl}/api/user`, {
+            const userCreationResponse = await fetch(`${apiUrl}/api/user`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({ name, email }),
             })
-            if (res.ok) {
-              return user
+
+            if (!userCreationResponse.ok) {
+              console.error(
+                'Failed to create user:',
+                userCreationResponse.statusText
+              )
+              // 적절한 오류 처리
             }
           }
 
-          const res1 = await fetch(`${apiUrl}/api/log`, {
+          const logResponse = await fetch(`${apiUrl}/api/log`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({ email }),
           })
+
+          if (!logResponse.ok) {
+            console.error('Failed to log user:', logResponse.statusText)
+            // 적절한 오류 처리
+          }
         } catch (error) {
-          console.log(error)
+          console.error('Error during sign-in:', error)
+          // 적절한 오류 처리
         }
       }
       return user
