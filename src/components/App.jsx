@@ -6,7 +6,6 @@ import Header from './Header'
 import { useEffect } from 'react'
 import { hideLoading } from '@/redux/slices/cartSlice'
 import { usePathname } from 'next/navigation'
-import Footer from '../app/Footer/Footer'
 
 export default function App({ children }) {
   const dispatch = useDispatch()
@@ -34,9 +33,7 @@ export default function App({ children }) {
         {<main className="p-4">{children}</main>}
       </div>
       <CartSidebar />
-      <div className="footer">
-        <Footer />
-      </div>
+      <div className="footer"></div>
     </div>
   )
 }
