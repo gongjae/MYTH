@@ -41,14 +41,6 @@ export const authOptions = {
               return user
             }
           }
-
-          const res1 = await fetch(`${apiUrl}/api/log`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email }),
-          })
         } catch (error) {
           console.log(error)
         }
