@@ -9,7 +9,7 @@ export default function Footer() {
           <span className="ml-3 text-xl">MYTH</span>
         </div>
         <p className="text-sm text-white">
-          Jongbu University - Web Programming 2
+          Joongbu University - Web Programming 2
         </p>
         <div className="flex flex-wrap justify-between">
           <div className="px-4">
