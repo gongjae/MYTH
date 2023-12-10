@@ -42,13 +42,12 @@ export const authOptions = {
             }
           }
           const res1 = await fetch(`${apiUrl}/api/log`, {
-            //eslint-disable-line no-unused-vars
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({ email }),
-          })
+          }) //eslint-disable-line no-unused-vars
         } catch (error) {
           console.log(error)
         }
